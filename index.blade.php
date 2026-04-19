@@ -1,65 +1,38 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
-<style>
-.card-layanan {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(255,105,180,0.2);
-    transition: 0.3s;
-    background: #fff;
-}
+<div class="container mt-4">
 
-.card-layanan:hover {
-    transform: translateY(-10px);
-}
+    <h2 class="mb-4">Daftar Artikel</h2>
 
-.card-layanan img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
+    <div class="row">
+        @foreach ($articles as $article)
+        <div class="col-md-4 mb-3">
 
-.btn-pink {
-    background: #ff69b4;
-    color: white;
-    border-radius: 20px;
-}
+            <div class="card shadow">
 
-.btn-pink:hover {
-    background: #ff1493;
-}
-</style>
+                @if($article->gambar)
+                    <img src="{{ asset('images/' . $article->gambar) }}" class="card-img-top">
+                @endif
 
-<h2 class="text-center text-danger">💎 List Layanan Glow Beauty</h2>
+                <div class="card-body">
+                    <h5>{{ $article->judul }}</h5>
 
-<div class="row mt-4">
+                    <p>
+                        {{ Str::limit($article->isi, 100) }}
+                    </p>
 
-@foreach($data as $item)
+                    <a href="{{ url('/artikel/'.$article->id) }}" class="btn btn-primary btn-sm">
+                        Baca Selengkapnya
+                    </a>
+                </div>
 
-<div class="col-md-4 mb-4">
-
-    <div class="card-layanan">
-
-        <img src="{{ asset('images/'.$item->gambar) }}">
-
-        <div class="p-3 text-center">
-
-            <h5>{{ $item->nama }}</h5>
-            <p>Rp {{ $item->harga }}</p>
-
-            <a href="/layanan/{{ $item->id }}/detail" class="btn btn-pink btn-sm">
-                Lihat Detail
-            </a>
+            </div>
 
         </div>
-
+        @endforeach
     </div>
-
-</div>
-
-@endforeach
 
 </div>
 

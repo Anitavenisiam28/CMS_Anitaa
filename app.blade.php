@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>Klinik Kecantikan</title>
+
     <style>
         body {
-            font-family: Arial;
             margin: 0;
+            font-family: Arial;
             background: #ffe6f0;
         }
 
@@ -21,14 +22,30 @@
             font-weight: bold;
         }
 
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .container {
             padding: 20px;
         }
 
         .card {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #ff4d88;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ff4d88;
+            font-weight: bold;
         }
     </style>
 </head>
